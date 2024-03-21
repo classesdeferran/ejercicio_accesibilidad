@@ -204,6 +204,8 @@ footer div {
   }
 }
 
+/* El skip-link sirve para crear un elemento invisible
+desde la pantalla a menos que reciba foco */
 #skip-link {
   position: absolute;
   left: -10000px;

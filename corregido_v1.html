@@ -3,11 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Ponemos el title, imprescindible  -->
     <title>Hotel Mas dels Avets</title>
+    <!-- Ponemos el favicon  -->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <!-- Nuevo css para sustituir el anterior  -->
     <link rel="stylesheet" href="css/corregido_v1.css" />
   </head>
   <body>
+    <!-- Utilizamos las etiquetas semànticas:
+    -- nav, header, main, section, footer
+    -- ul, ol, li, etc. -->
+
+    <!-- role = "navigation" añade más semántica, pero no es necesario -->
     <nav id="inicio" role="navigation">
       <ul class="container">
         <li><a href="#">Inicio</a></li>
@@ -18,8 +26,24 @@
     </nav>
 
     <header class="container">
+      <!-- El skip-link es una forma de crear un atajo 
+      para las personas que se dsplazan con el tabulador.
+      Haremos que sea invisible desde la pantalla, excepto 
+      cuando reciba el foco. -->
       <a tabindex="2" id="skip-link" href="#habitaciones">Ir al contenido</a>
+
+      <!-- Hay etiquetas que reciben foco de forma predeterminada:
+      -- a, button, input
+      Pero otras no:
+      -- h1, h2, h3, h4, h5, h6, p, span, img
+      Para que reciban foco y puedan ser detectadas 
+      por el lector de pantalla utilizamos el atributo tabindex.
+      tabindex="1" hace que este elemento reciba foco y sea además el primero de todos.
+      tabindex="0" da foco, pero el orden de lectura será la secuencia del código. -->
       <h1 tabindex="1">Hotel Mas dels Avets</h1>
+
+      <!-- La imagen recibe foco gracias al tabindex.
+      El lector podrá acceder al contenido escrito en alt -->
       <img
         src="img/hotel.jpg"
         alt="El hotel Mas dels Avets se encuentra enclavado entre montañas y bosques. Disponemos de todos los servicios, incluida piscina."
@@ -37,12 +61,15 @@
         <div id="habitaciones">
           <h2 tabindex="0">Nuestras habitaciones</h2>
           <p tabindex="0">Todas nuestras habitaciones disponen de:</p>
+          <!-- Las etiquetas ul y li también son semánticas -->
           <ul tabindex="0">
             <li>Baño privado.</li>
             <li>TV conectada a satélite.</li>
             <li>Aire Acondicionado.</li>
             <li>Caja de seguridad.</li>
           </ul>
+          <!-- Ayuda mucho a los usuarios por teclado poder 
+          disponer de atajos para regresar al principio -->
           <p class="volver-inicio"><a href="#inicio">Volver al inicio</a></p>
         </div>
 
@@ -66,6 +93,10 @@
         <form class="container">
           <fieldset>
             <legend tabindex="0">Datos Personales</legend>
+            <!-- Para informar al lector de que el input es requerido
+            necesitamos el atributo aria-required="true".
+            No es lo mismo que hacer obligatorio el input 
+            (eso lo hace el atributo required) -->
             <label>Nombre * : <input type="text" required aria-required="true"/> </label>
             <label
               >Apellidos * : <input type="text" required aria-required="true" />
@@ -102,8 +133,16 @@
 
         <ul>
           <li>
-            <a href="#" aria-label="Enlace a Google Play"
-              ><img src="img/google-play2.png" alt=""
+            <!-- La información que se transmite de forma visual 
+            hay que ponerla por escrito para el lector de pantalla.
+            aria-label nos sirve para informar al usuario de algo,
+            en este caso de lo que hará el enlace. -->
+            <a href="#" aria-label="Enlace a Google Play">
+            <!-- El atributo alt puede estar vacío porque se trata de
+            una imagen que no necesita descripción. En los logos y
+            similares normalmente no hace falta ponerla, aunque sí
+            que tendremos que informar de para que sirven, con aria-label -->
+              <img src="img/google-play2.png" alt=""
             /></a>
           </li>
           <li>
